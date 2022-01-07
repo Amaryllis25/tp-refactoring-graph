@@ -93,6 +93,9 @@ public class Edge {
 
 	@JsonSerialize(using = GeometrySerializer.class)
 	public LineString getGeometry() {
+		if (this.geometry != null) {
+			return this.geometry;
+		}
 		GeometryFactory gf = new GeometryFactory();
 		return gf.createLineString(new Coordinate[] {
 			source.getCoordinate(),
