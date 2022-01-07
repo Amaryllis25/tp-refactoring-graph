@@ -88,7 +88,7 @@ public class Edge {
 	 * @return
 	 */
 	public double getCost() {
-		return source.getCoordinate().distance(target.getCoordinate());
+		return this.geometry.getLength();
 	}
 
 	@JsonSerialize(using = GeometrySerializer.class)
