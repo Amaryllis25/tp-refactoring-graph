@@ -32,6 +32,11 @@ public class Edge {
 	 * Sommet final
 	 */
 	private Vertex target;
+	
+	/**
+	 * Segment d'un tronçon
+	 */
+	LineString geometry;
 
 	Edge(Vertex source, Vertex target){
 		if(source == null || target == null) {
@@ -49,6 +54,10 @@ public class Edge {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+	
+	public void setGeometry(LineString geometry) {
+		this.geometry = geometry;
 	}
 
 	/**
@@ -95,5 +104,4 @@ public class Edge {
 	public String toString() {
 		return id + " (" + source + "->" + target + ")";
 	}
-
 }
