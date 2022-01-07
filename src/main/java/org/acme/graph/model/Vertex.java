@@ -38,6 +38,13 @@ public class Vertex {
 	public Vertex() {
 
 	}
+	
+	public Vertex(Coordinate coordinate, String id) {
+		this.coordinate = coordinate;
+		this.id = id;
+	}
+
+
 
 	public String getId() {
 		return id;
