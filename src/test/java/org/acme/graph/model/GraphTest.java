@@ -100,5 +100,20 @@ public class GraphTest {
 		Edge edge = new Edge(a, b);
 		Assert.assertEquals(0.0, edge.getCost(), EPSILON);
 	}
+	
+	@Test
+	public void testEmptyConstructor(){
+        Graph graph = new Graph();
+		Assert.assertEquals(0, graph.getEdges().size());
+	}
+	
+	@Test
+	public void testFullfilledConstructor(){
+        Graph graph = new Graph();
+		Vertex a = graph.createVertex(new Coordinate(0.0, 0.0),"a");
+		Vertex b = graph.createVertex(new Coordinate(1.0, 0.0),"b");
+		graph.createEdge(a,  b,  "ab", null);
+		Assert.assertEquals(1, graph.getEdges().size());
+	}
 
 }
