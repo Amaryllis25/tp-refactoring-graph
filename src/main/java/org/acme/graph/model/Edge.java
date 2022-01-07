@@ -45,6 +45,9 @@ public class Edge {
 		else {
 			this.source = source;
 			this.target = target;
+
+			source.getOutEdges().add(this);
+			target.getInEdges().add(this);
 		}
 	}
 
