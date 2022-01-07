@@ -63,5 +63,22 @@ public class GraphTest {
 		assertEquals(1, result.size());
 		assertEquals("ab (a->b)", result.get(0).toString());
 	}
+	
+	@Test
+	public void testCreateEdge() {
+		Graph graph = new Graph();
+		Vertex a = graph.createVertex(new Coordinate(0.0, 0.0),"a");
+		Vertex b = graph.createVertex(new Coordinate(1.0, 0.0),"b");
+		graph.createEdge(a,b,"ab");
+		Assert.assertFalse(graph.getEdges().isEmpty());
+	}
+	
 
+	@Test
+	public void testCreateVertex() {
+		Coordinate c = new Coordinate(0.0, 0.0);
+		Graph graph = new Graph();
+		graph.createVertex(c, "a");
+		Assert.assertEquals("a", graph.findVertex("a").getId());
+	}
 }

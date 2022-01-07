@@ -93,7 +93,7 @@ public class GraphReader {
 		}
 		if (sens.equals(DOUBLE_SENS) || sens.equals(SENS_INVERSE)) {
 			/* Création de l'arc pour le parcours en sens opposé */
-			graph.createEdge(source, target, id + "-reverse");
+			graph.createEdge(target, source, id + "-reverse");
 		}
 	}
 
