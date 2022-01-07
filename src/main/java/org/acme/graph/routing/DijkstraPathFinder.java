@@ -9,6 +9,7 @@ import org.acme.graph.model.Graph;
 import org.acme.graph.model.Vertex;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.acme.graph.errors.NotFoundException;
 
 /**
  * 
@@ -46,7 +47,7 @@ public class DijkstraPathFinder {
 			}
 		}
 		log.info("findPath({},{}) : path not found", origin, destination);
-		return null;
+		throw new NotFoundException(String.format("Path not found from '%s' to '%s'", origin, destination));
 	}
 
 	/**
