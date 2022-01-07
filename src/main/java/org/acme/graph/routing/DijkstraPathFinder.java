@@ -32,6 +32,16 @@ public class DijkstraPathFinder {
 	public DijkstraPathFinder(Graph graph) {
 		this.graph = graph;
 	}
+	
+	/**
+	 * Convertir un vertex en PathNode
+	 * 
+	 * @param vertex
+	 * @return
+	 */
+	public PathNode getNode(Vertex vertex) {
+		return nodes.get(vertex);
+	}
 
 	/**
 	 * Calcul du plus court chemin entre une origine et une destination
@@ -46,7 +56,7 @@ public class DijkstraPathFinder {
 		Vertex current;
 		while ((current = findNextVertex()) != null) {
 			visit(current);
-			if (destination.getReachingEdge() != null) {
+			if (getNode(destination).getReachingEdge() != null) {
 				log.info("findPath({},{}) : path found", origin, destination);
 				return buildPath(destination);
 			}
