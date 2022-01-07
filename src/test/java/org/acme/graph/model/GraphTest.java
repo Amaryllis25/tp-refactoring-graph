@@ -13,6 +13,8 @@ import org.locationtech.jts.geom.Coordinate;
 
 public class GraphTest {
 
+	public static final double EPSILON = 1.0e-15;
+	
 	@Test
 	public void testFindVertexById() {
 		Vertex v = TestGraphFactory.createGraph01().findVertex("a");
@@ -69,10 +71,9 @@ public class GraphTest {
 		Graph graph = new Graph();
 		Vertex a = graph.createVertex(new Coordinate(0.0, 0.0),"a");
 		Vertex b = graph.createVertex(new Coordinate(1.0, 0.0),"b");
-		graph.createEdge(a,b,"ab");
+		graph.createEdge(a,b,"ab", null);
 		Assert.assertFalse(graph.getEdges().isEmpty());
 	}
-	
 
 	@Test
 	public void testCreateVertex() {
@@ -81,4 +82,23 @@ public class GraphTest {
 		graph.createVertex(c, "a");
 		Assert.assertEquals("a", graph.findVertex("a").getId());
 	}
+	
+	@Test
+	public void testgetGeometry() {
+		Graph graph = new Graph();
+		Vertex a = graph.createVertex(new Coordinate(0.0, 0.0),"a");
+		Vertex b = graph.createVertex(new Coordinate(1.0, 0.0),"b");
+		Edge edge = new Edge(a, b);
+		Assert.assertTrue(edge.getGeometry() != null);
+	}
+	
+	@Test
+	public void testgetCost() {
+		Graph graph = new Graph();
+		Vertex a = graph.createVertex(new Coordinate(0.0, 0.0),"a");
+		Vertex b = graph.createVertex(new Coordinate(1.0, 0.0),"b");
+		Edge edge = new Edge(a, b);
+		Assert.assertEquals(0.0, edge.getCost(), EPSILON);
+	}
+
 }

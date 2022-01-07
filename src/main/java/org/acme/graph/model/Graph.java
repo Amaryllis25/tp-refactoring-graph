@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.acme.graph.errors.NotFoundException;
 import org.locationtech.jts.geom.Coordinate;
+import org.locationtech.jts.geom.LineString;
 
 /**
  * 
@@ -147,9 +148,10 @@ public class Graph {
 	 * @param id
 	 * @return
 	 */
-	public Edge createEdge(Vertex source, Vertex target, String id) {
+	public Edge createEdge(Vertex source, Vertex target, String id, LineString geometry) {
 		Edge edge = new Edge(source,target);
 		edge.setId(id);
+		edge.setGeometry(geometry);
 		this.edges.add(edge);
 		return edge;
 	}
