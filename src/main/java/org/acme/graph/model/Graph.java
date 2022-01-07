@@ -78,10 +78,7 @@ public class Graph {
 			vertex = findVertex(coordinate);
 		} catch (NotFoundException e) {
 			/* création d'un nouveau sommet car non trouvé */
-			vertex = new Vertex();
-			vertex.setId(Integer.toString(getVertices().size()));
-			vertex.setCoordinate(coordinate);
-			vertices.add(vertex);
+			vertex = createVertex(coordinate, Integer.toString(getVertices().size()));
 		}
 		return vertex;
 	}
